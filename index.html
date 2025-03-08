@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Hybrid Inverse Rendering for Relightable Human Hair Appearance Modeling">
+  <meta name="keywords" content="Inverse Rendering, Relightable Human Hair Modeling">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GroomLight: Hybrid Inverse Rendering for Relightable Human Hair Appearance Modeling</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">GroomLight: Hybrid Inverse Rendering for Relightable Human Hair Appearance Modeling</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://y-zheng18.github.io/">Yang Zheng</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="https://mlchai.com/">Menglei Chai</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://dvicini.github.io/">Delio Vicini</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://calciferzh.github.io"> Yuxiao Zhou</a><sup>2,3</sup>,</span>
+            <span class="author-block">
+              <a href="https://justimyhxu.github.io/"> Yinghao Xu</a><sup>1</sup>,</span>  
+            <span class="author-block">
+              <a href="https://geometry.stanford.edu/?member=guibas"> Leonidas Guibas</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://stanford.edu/~gordonwz/"> Gordon Wetzstein</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://thabobeeler.com"> Thabo Beeler</a><sup>2</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Stanford University,</span>
+            <span class="author-block"><sup>2</sup>Google,</span>
+            <span class="author-block"><sup>2</sup>ETH Zurich</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span> -->
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block"> -->
+                <!-- <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div id="teaser-carousel" class="carousel results-carousel">
+        <div class="item">
+		  <video poster="" autoplay muted loop playsinline>
+		    <source src="./static/videos/357_1.mp4" type="video/mp4">
+		  </video>
+        </div>
+        <div class="item">
+		  <video poster="" autoplay muted loop playsinline>
+		    <source src="./static/videos/332_1.mp4" type="video/mp4">
+		  </video>
+        </div>
+        <div class="item">
+		  <video poster="" autoplay muted loop playsinline>
+		    <source src="./static/videos/343_1.mp4" type="video/mp4">
+		  </video>
+        </div>
+        <div class="item">
+		  <video poster="" autoplay muted loop playsinline>
+		    <source src="./static/videos/321_1.mp4" type="video/mp4">
+		  </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  bulmaCarousel.attach('#teaser-carousel', {
+    loop: true,
+    infinite: true,
+    slidesToScroll: 1,
+    slidesToShow: 2,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    pauseOnHover: true,
+    pagination: false,
+  });
+  </script>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present GroomLight, a novel method for relightable hair appearance modeling from multi-view images. Existing hair capture methods struggle to balance photorealistic rendering with relighting capabilities. Analytical material models, while physically grounded, often fail to fully capture appearance details. Conversely, neural rendering approaches excel at view synthesis but generalize poorly to novel lighting conditions. GroomLight addresses this challenge by combining the strengths of both paradigms. It employs an extended hair BSDF model to capture primary light transport and a light-aware residual model to reconstruct the remaining details. We further propose a hybrid inverse rendering pipeline to optimize both components, enabling high-fidelity relighting, view synthesis, and material editing. Extensive evaluations on real-world hair data demonstrate state-of-the-art performance of our method.
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3" style="text-align:center">Relighting Results</h2>
+      <h3 class="title is-5" style="text-align:left"></h3>
+      <div id="relighting-carousel" class="carousel results-carousel">
+        <div class="item">
+		  <video poster="" autoplay muted loop playsinline>
+		    <source src="./static/videos/357.mp4" type="video/mp4">
+		  </video>
+        </div>
+        <div class="item">
+		  <video poster="" autoplay muted loop playsinline>
+		    <source src="./static/videos/343.mp4" type="video/mp4">
+		  </video>
+        </div>
+        <div class="item">
+		  <video poster="" autoplay muted loop playsinline>
+		    <source src="./static/videos/331.mp4" type="video/mp4">
+		  </video>
+        </div>
+        <div class="item">
+		  <video poster="" autoplay muted loop playsinline>
+		    <source src="./static/videos/321.mp4" type="video/mp4">
+		  </video>
+        </div>
+        <div class="item">
+      <video poster="" autoplay muted loop playsinline>
+        <source src="./static/videos/332.mp4" type="video/mp4">
+      </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  bulmaCarousel.attach('#relighting-carousel', {
+    loop: true,
+    infinite: true,
+    slidesToScroll: 1,
+    slidesToShow: 4,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    pauseOnHover: true,
+    pagination: false,
+  });
+  </script>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Albedo Editing</h2>
+          <p>
+            By directly modifying the absorption coefficients for specific hair strands, we can achieve various color effects.
+          </p>
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/editing_357.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div class="column">
+        <h2 class="title is-3">Roughness Editing</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              Our representation supports rendering diverse highlight patterns by changing the roughness parameters.
+            </p>
+            <video id="matting-video" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/editing_332.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="column">
+      <h2 class="title is-3">Dynamic Rendering</h2>
+      <div class="columns is-centered">
+        <div class="column content">
+          <p>
+            Our representation is generalized to novel geometry.
+          </p>
+          <video id="matting-video" autoplay controls muted loop playsinline width="50%">
+            <source src="./static/videos/sim_357.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+      </div>
+    </div> -->
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+      @inproceedings{Zheng2025GroomLight,
+        title     = {GroomLight: Hybrid Inverse Rendering for Relightable Human Hair Appearance Modeling},
+        author    = {Zheng, Yang and Chai, Menglei and Vicini, Delio and Zhou, Yuxiao and Xu, Yinghao and Guibas, Leonidas and Wetzstein, Gordon and Beeler, Thabo},
+        journal={arxiv},
+        year={2025}
+      }
+</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+
+    <div class="content has-text-centered">
+      <a class="icon-link"
+        href="">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+
+            The <a href="https://github.com/nerfies/nerfies.github.io">source code</a> for the website 
+            was taken from Nerfies. We appreciate the authors sharing the templates with us.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
